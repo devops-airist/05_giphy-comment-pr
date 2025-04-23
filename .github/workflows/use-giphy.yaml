@@ -1,12 +1,20 @@
-name: Use Giphy Workflow
-
 on:
-  pull_request:
-    types: [opened]
+  pull_request: 
+        types:
+         - opened
 
 jobs:
-  use-giphy-template:
-    uses: devops-airist/.github/.github/workflows/giphy-template.yml@main
-    secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      GIPHY_API_KEY: ${{ secrets.GIPHY_API_KEY }}
+  testing-action:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Post PR Comment
+      uses: ./
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        giphy-api-key: ${{ secrets.GIPHY_API_KEY }}
