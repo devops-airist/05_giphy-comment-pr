@@ -1,0 +1,12 @@
+name: Use Giphy Workflow
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  use-giphy-template:
+    uses: devops-airist/.github/workflow-templates/giphy-template.yml@main
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GIPHY_API_KEY: ${{ secrets.GIPHY_API_KEY }}
