@@ -6,7 +6,7 @@ on:
 
 jobs:
   use-giphy-template:
-    uses: devops-airist/.github/workflow-templates/giphy-template.yml@main
+    uses: devops-airist/.github/.github/workflows/giphy-template.yml@main
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GIPHY_API_KEY: ${{ secrets.GIPHY_API_KEY }}
